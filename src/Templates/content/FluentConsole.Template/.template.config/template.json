@@ -1,0 +1,17 @@
+﻿{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "DealiAxy",
+  "classifications": [
+    "Common",
+    "Console"
+  ],
+  "identity": "FluentConsole.Template",
+  "name": "FluentConsole.Template",
+  "description": "提供「现代化的控制台应用的开发体验」脚手架，能像 Web 应用那样很优雅地整合各种组件，包括依赖注入、配置、日志等功能。",
+  "shortName": "flu-cli",
+  "sourceName": "FluentConsole.Template",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}
