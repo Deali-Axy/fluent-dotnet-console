@@ -13,7 +13,7 @@ using Serilog;
 DotEnv.Load();
 
 ConsoleTool.PrintLogo();
-ConsoleTool.PrintTitle("FluentConsole.Template - v1.0");
+ConsoleTool.PrintTitle("FluentConsole.Template - v1.1");
 
 IConfigurationRoot? config;
 
