@@ -2,7 +2,8 @@
 
 using System;
 using dotenv.net;
-using FluentConsole.Template;
+using FluentConsole.Template.Entities;
+using FluentConsole.Template.Services;
 using FluentConsole.Template.Utilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

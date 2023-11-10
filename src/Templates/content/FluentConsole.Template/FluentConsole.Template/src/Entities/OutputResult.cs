@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FluentConsole.Template; 
+namespace FluentConsole.Template.Entities;
 
 public class OutputResult {
     public string Result { get; set; }
