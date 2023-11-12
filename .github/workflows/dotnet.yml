@@ -27,3 +27,5 @@ jobs:
       run: dotnet nuget add source --username DealiAxy --password ${{ secrets.TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Deali-Axy/index.json"
     - name: Publish the package to Github Packages
       run: dotnet nuget push ./src/Templates/bin/Release/*.nupkg --api-key ${{ secrets.TOKEN }} --source github --skip-duplicate
+    - name: Publish the package to Nuget Gallery
+      run: dotnet nuget push ./src/Templates/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_GALLERY_TOKEN }}  --source nuget.org --skip-duplicate
