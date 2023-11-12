@@ -17,14 +17,13 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
-        source-url: https://nuget.pkg.github.com/Deali-Axy/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Restore dependencies
       run: dotnet restore ./src/Templates/FluentConsole.Templates.csproj
     - name: Build
       run: dotnet build --no-restore -c Release ./src/Templates/FluentConsole.Templates.csproj
     - name: Create the package
       run: dotnet pack -c Release ./src/Templates/FluentConsole.Templates.csproj
+    - name: Add nuget source
+      run: dotnet nuget add source --username DealiAxy --password ${{ secrets.TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Deali-Axy/index.json"
     - name: Publish the package to GPR
-      run: dotnet nuget push ./src/Templates/bin/Release/*.nupkg
+      run: dotnet nuget push ./src/Templates/bin/Release/*.nupkg --source github
