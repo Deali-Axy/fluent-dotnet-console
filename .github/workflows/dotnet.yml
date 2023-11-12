@@ -26,4 +26,4 @@ jobs:
     - name: Add nuget source
       run: dotnet nuget add source --username DealiAxy --password ${{ secrets.TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Deali-Axy/index.json"
     - name: Publish the package to GPR
-      run: dotnet nuget push ./src/Templates/bin/Release/*.nupkg --source github
+      run: dotnet nuget push ./src/Templates/bin/Release/*.nupkg --api-key ${{ secrets.TOKEN }} --source github
