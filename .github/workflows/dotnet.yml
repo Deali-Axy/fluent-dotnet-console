@@ -17,22 +17,30 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 8.0.x
+      
+#      - name: Add nuget source
+#        run: dotnet nuget add source -u ${{ github.actor }} -p ${{ secrets.TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Deali-Axy/index.json"
+      
       - name: Initialize nuget
-        run: dotnet nuget update source github -u ${{ github.actor }} -p ${{ secrets.READ_GH_PACKAGES_PAT_ORG }} --store-password-in-clear-text
+        run: dotnet nuget update source github -u ${{ github.actor }} -p ${{ secrets.TOKEN }} --store-password-in-clear-text
+      
       - name: Restore dependencies
         run: dotnet restore ./src/Templates/FluentConsole.Templates.csproj
+      
       - name: Build
         run: dotnet build --no-restore -c Release --nologo ./src/Templates/FluentConsole.Templates.csproj
+      
       - name: Create the package
         run: dotnet pack -c Release ./src/Templates/FluentConsole.Templates.csproj
-      - name: Add nuget source
-        run: dotnet nuget add source --username DealiAxy --password ${{ secrets.TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Deali-Axy/index.json"
+        
       - name: Publish the package to Github Packages
         run: dotnet nuget push ./src/Templates/bin/Release/*.nupkg --api-key ${{ secrets.TOKEN }} --source github --skip-duplicate
+      
       - name: Publish the package to Nuget Gallery
         run: dotnet nuget push ./src/Templates/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_GALLERY_TOKEN }}  --source nuget.org --skip-duplicate
         
