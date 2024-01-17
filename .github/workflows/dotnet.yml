@@ -10,6 +10,10 @@ jobs:
   publish-nuget-packages:
 
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      issues: write
 
     steps:
       - uses: actions/checkout@v3
@@ -17,10 +21,12 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 8.0.x
+      - name: Initialize nuget
+        run: dotnet nuget update source github -u ${{ github.actor }} -p ${{ secrets.READ_GH_PACKAGES_PAT_ORG }} --store-password-in-clear-text
       - name: Restore dependencies
         run: dotnet restore ./src/Templates/FluentConsole.Templates.csproj
       - name: Build
-        run: dotnet build --no-restore -c Release ./src/Templates/FluentConsole.Templates.csproj
+        run: dotnet build --no-restore -c Release --nologo ./src/Templates/FluentConsole.Templates.csproj
       - name: Create the package
         run: dotnet pack -c Release ./src/Templates/FluentConsole.Templates.csproj
       - name: Add nuget source
