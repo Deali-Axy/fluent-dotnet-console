@@ -2,7 +2,8 @@ using System.IO;
 using System.Text.Json;
 using Dumpify;
 using FluentConsole.Template.Entities;
-using FluentConsole.Template.MISC;
+using FluentConsole.Template.Utilities;
+using FluentResults;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -20,7 +21,7 @@ public class MainService : IService {
         _conf = conf;
     }
 
-    public Task Run() {
+    public async Task<Result> Run() {
         _logger.LogInformation("启动！");
 
         _logger.LogInformation("测试配置文件加载情况");
@@ -33,9 +34,9 @@ public class MainService : IService {
             Result = "ok",
             Messages = new[] { "msg1", "msg2" }
         };
-        File.WriteAllText("output.json",
+        await File.WriteAllTextAsync("output.json",
             JsonSerializer.Serialize(result, SourceGenerationContext.Default.OutputResult));
 
-        return Task.CompletedTask;
+        return Result.Ok();
     }
 }

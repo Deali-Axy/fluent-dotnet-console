@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Metadata;
 using FluentConsole.Template.Entities;
 
-namespace FluentConsole.Template.MISC;
+namespace FluentConsole.Template.Utilities;
 
 [JsonSourceGenerationOptions(WriteIndented = true)]
 [JsonSerializable(typeof(OutputResult))]

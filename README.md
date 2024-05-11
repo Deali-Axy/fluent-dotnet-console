@@ -56,8 +56,17 @@ MyProject
 
 因此，创建项目之后，直接在 `Services/MainService.cs` 文件里写业务逻辑就好了。
 
+## updates
 
+### 2.0
 
+- 升级到 .Net8 版本
+- 添加 `Microsoft.Extensions.Caching.Abstractions` 依赖
+- 添加 `Flurl.Http` 为程序提供强大的网络访问能力
+- 删除 `FluentConsole.Template.MISC` 命名空间
+- 重构框架，优化 `Program.cs` 文件的代码，现在更简洁了
+- 封装了框架逻辑，相关代码在 `Framework` 目录下，隐藏了初始化逻辑
+- 自动服务注册，只要实现了 `IService` 接口的服务，就会自动扫描并注册
 
 
 

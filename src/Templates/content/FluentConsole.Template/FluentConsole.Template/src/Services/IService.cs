@@ -1,5 +1,7 @@
-namespace FluentConsole.Template.Services; 
+using FluentResults;
+
+namespace FluentConsole.Template.Services;
 
 public interface IService {
-    public Task Run();
+    Task<Result> Run();
 }
