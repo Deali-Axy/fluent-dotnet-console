@@ -2,6 +2,16 @@
 
 提供「现代化的控制台应用的开发体验」脚手架，能像 Web 应用那样很优雅地整合各种组件，包括依赖注入、配置、日志等功能。
 
+---
+
+[![NuGet](https://img.shields.io/nuget/v/FluentConsole.Templates.svg)](https://www.nuget.org/packages/FluentConsole.Templates/)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/Deali-Axy/fluent-dotnet-console/dotnet.yml)](https://github.com/Deali-Axy/fluent-dotnet-console/actions)
+[![License](https://img.shields.io/github/license/Deali-Axy/fluent-dotnet-console.svg)](https://github.com/Deali-Axy/fluent-dotnet-console/blob/master/README.md)
+[![GitHub issues](https://img.shields.io/github/issues/Deali-Axy/fluent-dotnet-console.svg)](https://github.com/Deali-Axy/fluent-dotnet-console/issues)
+[![GitHub forks](https://img.shields.io/github/forks/Deali-Axy/fluent-dotnet-console.svg)](https://github.com/Deali-Axy/fluent-dotnet-console/network)
+[![GitHub stars](https://img.shields.io/github/stars/Deali-Axy/fluent-dotnet-console.svg)](https://github.com/Deali-Axy/fluent-dotnet-console/stargazers)
+
+
 ## Features
 
 - 🚀 提供快速开发模板，一键生成控制台应用的项目骨架
@@ -67,7 +77,6 @@ MyProject
 - 重构框架，优化 `Program.cs` 文件的代码，现在更简洁了
 - 封装了框架逻辑，相关代码在 `Framework` 目录下，隐藏了初始化逻辑
 - 自动服务注册，只要实现了 `IService` 接口的服务，就会自动扫描并注册
-
 
 
 
