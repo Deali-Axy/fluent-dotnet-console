@@ -38,9 +38,10 @@ public sealed class FluentConsoleApp {
     /// <summary>
     /// 运行指定任务
     /// </summary>
-    public Task<Result> Run<T>() where T : IService {
-        using var sp = Services.BuildServiceProvider();
-        var service = sp.GetRequiredService<T>();
-        return service.Run();
+    public async Task<Result> Run<T>() where T : IService {
+        await using var sp = Services.BuildServiceProvider();
+        await using var scope = sp.CreateAsyncScope();
+        var service = scope.ServiceProvider.GetRequiredService<T>();
+        return await service.Run();
     }
 }

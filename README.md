@@ -34,26 +34,39 @@ dotnet new install FluentConsole.Templates
 dotnet new flu-cli -n MyProject
 ```
 
+`Program.cs` 代码
+
+```c#
+var builder = FluentConsoleApp.CreateBuilder(args);
+var app = builder.Build();
+await app.Run<MainService>();
+```
+
 ## 项目目录结构
 
 使用模板创建的项目目录结构是这样，代码统一放在 `src` 目录下。
 
-```sql
-MyProject
+```
+ MyProject
  ├─ src
  │  ├─ Utilities
+ │  │  ├─ SourceGenerationContext.cs
  │  │  └─ ConsoleTool.cs
  │  ├─ Services
  │  │  ├─ MainService.cs
  │  │  └─ IService.cs
- │  ├─ MISC
- │  │  └─ SourceGenerationContext.cs
+ │  ├─ Framework
+ │  │  ├─ Extensions
+ │  │  │  └─ FluentConsoleBuilderExt.cs
+ │  │  ├─ FluentConsoleBuilder.cs
+ │  │  └─ FluentConsoleApp.cs
  │  ├─ Entities
  │  │  ├─ OutputResult.cs
  │  │  └─ AppSettings.cs
  │  └─ Program.cs
  ├─ MyProject.csproj
  ├─ Dockerfile
+ ├─ .env
  └─ appsettings.json
 ```
 
@@ -61,12 +74,16 @@ MyProject
 
 - `Utilities`  - 存放通用工具类
 - `Services` - 业务逻辑代码
-- `MISC` - 杂项
+- `Framework` - 框架核心代码，一般不需要修改
 - `Entities` - 实体类，强类型配置、输出结果对象
 
-因此，创建项目之后，直接在 `Services/MainService.cs` 文件里写业务逻辑就好了。
+创建项目之后，可以在 `Services` 目录里写业务逻辑，实现 `IService` 接口的类会自动注册。
 
 ## updates
+
+### 2.1
+
+- 修复 `FluentConsoleApp.Run<T>` 的bug
 
 ### 2.0
 
