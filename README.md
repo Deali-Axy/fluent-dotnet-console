@@ -81,6 +81,10 @@ await app.Run<MainService>();
 
 ## updates
 
+### 2.2
+
+- 更新一些依赖；依然使用 .Net8 版本
+
 ### 2.1
 
 - 修复 `FluentConsoleApp.Run<T>` 的bug
