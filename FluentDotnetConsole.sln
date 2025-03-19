@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentDemo", "src\FluentDem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentConsole.Shared", "src\FluentConsole.Shared\FluentConsole.Shared.csproj", "{4C23A920-1F0D-4823-99B5-68B2309331DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentConsole.Template", "src\Templates\content\FluentConsole.Template\FluentConsole.Template.csproj", "{B18055B5-54C5-4792-BCBD-59CA55759DED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7A04A915-FF82-480C-BC0F-EEE29F65EF63} = {40A1C908-A63B-432E-8C9B-0728974EE1AA}
 		{4C23A920-1F0D-4823-99B5-68B2309331DB} = {40A1C908-A63B-432E-8C9B-0728974EE1AA}
+		{B18055B5-54C5-4792-BCBD-59CA55759DED} = {40A1C908-A63B-432E-8C9B-0728974EE1AA}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7A04A915-FF82-480C-BC0F-EEE29F65EF63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +27,9 @@ Global
 		{4C23A920-1F0D-4823-99B5-68B2309331DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C23A920-1F0D-4823-99B5-68B2309331DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C23A920-1F0D-4823-99B5-68B2309331DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B18055B5-54C5-4792-BCBD-59CA55759DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B18055B5-54C5-4792-BCBD-59CA55759DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B18055B5-54C5-4792-BCBD-59CA55759DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B18055B5-54C5-4792-BCBD-59CA55759DED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

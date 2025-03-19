@@ -1,7 +1,3 @@
-.idea
-*.db
-src/Templates/content/FluentConsole.Template/src/Data/Migrations
-
 bin/
 obj/
 /packages/

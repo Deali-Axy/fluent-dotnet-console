@@ -7,13 +7,14 @@ public class FluentConsoleBuilder {
     public IConfiguration Configuration { get; set; }
     public IServiceCollection Services { get; set; }
 
-    internal FluentConsoleBuilder() {
-    }
+    internal FluentConsoleBuilder() { }
 
     public FluentConsoleApp Build() {
-        return new FluentConsoleApp {
+        var app = new FluentConsoleApp {
             Configuration = Configuration,
             Services = Services
         };
+
+        return app;
     }
 }
