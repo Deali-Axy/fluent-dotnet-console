@@ -13,7 +13,7 @@ public static class FluentConsoleBuilderExt {
         var configBuilder = new ConfigurationBuilder();
         configBuilder.AddEnvironmentVariables();
         configBuilder.SetBasePath(Environment.CurrentDirectory);
-        configBuilder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: false);
+        configBuilder.AddYamlFile("appsettings.yaml", optional: false, reloadOnChange: false);
         try {
             config = configBuilder.Build();
         }

@@ -1,0 +1,12 @@
+Logging:
+  LogLevel:
+    Default: Debug
+ConnectionStrings:
+  SQLite: "Data Source=app.db;"
+AppSettings:
+  Name: "The name of this app is fluent console demo"
+  Boolean: true
+  DemoList:
+    - item1
+    - item2
+    - item3
