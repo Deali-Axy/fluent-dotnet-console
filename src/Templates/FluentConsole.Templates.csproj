@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>FluentConsole.Templates</PackageId>
-        <PackageVersion>2.3</PackageVersion>
+        <PackageVersion>2.3.1</PackageVersion>
         <Title>FluentDotnetConsole Templates</Title>
         <Authors>DealiAxy</Authors>
         <Company>CodeLab</Company>
