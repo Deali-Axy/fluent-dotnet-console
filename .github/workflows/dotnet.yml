@@ -4,7 +4,10 @@
 name: .NET
 run-name: ${{ github.actor }} is publishing a nuget package 🚀
 
-on: [push]
+on:
+  push:
+    tags:
+      - 'v*.*.*'
 
 jobs:
   publish-nuget-packages:
@@ -23,6 +26,18 @@ jobs:
         with:
           dotnet-version: 8.0.x
       
+      - name: Extract package version from tag
+        shell: bash
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          if [[ ! "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+ ]]; then
+            echo "Tag '$TAG' does not match 'vX.Y.Z' pattern." >&2
+            exit 1
+          fi
+          VERSION="${TAG#v}"
+          echo "PACKAGE_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Resolved package version: $VERSION"
+      
 #      - name: Add nuget source
 #        run: dotnet nuget add source -u ${{ github.actor }} -p ${{ secrets.TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Deali-Axy/index.json"
       
@@ -36,7 +51,7 @@ jobs:
         run: dotnet build --no-restore -c Release --nologo ./src/Templates/FluentConsole.Templates.csproj
       
       - name: Create the package
-        run: dotnet pack -c Release ./src/Templates/FluentConsole.Templates.csproj
+        run: dotnet pack -c Release ./src/Templates/FluentConsole.Templates.csproj -p:PackageVersion=${PACKAGE_VERSION}
         
       - name: Publish the package to Github Packages
         run: dotnet nuget push ./src/Templates/bin/Release/*.nupkg --api-key ${{ secrets.TOKEN }} --source github --skip-duplicate
